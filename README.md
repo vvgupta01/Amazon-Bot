@@ -1,6 +1,6 @@
 This program was created in IntelliJ PyCharm 2020.1.2 using Python 3.6 and Windows 10.
 
-#### Overview
+### Overview
 This program queries and scrapes product information from Amazon.com through the 
 Windows PowerShell command-line interface. Features include:
 1. Retrieving general product information from search queries.  
@@ -9,13 +9,13 @@ Windows PowerShell command-line interface. Features include:
 
 3. Saving/emailing results and important item updates.
 
-#### Set Up
-##### Required Python Packages
+### Set Up
+#### Required Python Packages
 The following external packages are required if using a python environment separate
 from the one included: 
 `bs4`, `lxml`, `pandas`, `requests`.  
 
-##### Scripts
+#### Scripts
 Change line 10 in `Query.ps1` and `Track.ps1` located in the 
 **scripts** directory to the absolute path of the python interpreter `python.exe` 
 followed by the absolute path of `Query.py` and `Track.py` respectively.
@@ -28,21 +28,21 @@ may be **C:/Users/username/PyCharmProjects/Amazon-Bot/venv/Scripts/python.exe**.
 `Query.ps1` and `Track.ps1` may be moved anywhere outside the project that is more 
 easily accessible, such as the Desktop.
 
-##### Paths
+#### Paths
 Change lines 11 and 12 in `Utils.py` located in the **src** directory to the absolute 
 path of the project directory and python interpreter respectively.
 
 > The path for the interpreter should be the same as in the previous section.  
 > The path for the project may be **C:/Users/username/PyCharmProjects/Amazon-Bot**.
 
-##### Email
+#### Email
 The program requires email credentials in order to send an email from the account to
 itself when providing product results or item updates. The most secure method of doing
 so is through a Gmail account set up with an [app password](https://support.google.com/accounts/answer/185833?hl=en).  
 Change the `EMAIL` and `PASSWORD` keys of the `PARAMS` dictionary on line 9 in 
 `Utils.py` to your email and app password respectively. 
 
-#### Running Scripts
+### Running Scripts
 To run either `Query.ps1` or `Track.ps1`, open PowerShell and change the working 
 directory to the location of the script.
 
@@ -62,7 +62,7 @@ may be moved anywhere outside the project that is more easily accessible.
 Generating scripts results in a bash file that can be automated to run at specific
 times using [Windows Task Scheduler](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/schtasks).
 
-##### Querying Products
+#### Querying Products
 To query products, run `Query.ps1` followed by the search query and any optional 
 parameters. 
 
@@ -75,7 +75,7 @@ to how the files names are generated, running the same query within the same min
 replace the previous file.  
 To generate a script, add the parameter `-generate $true`.
 
-##### Tracking Items
+#### Tracking Items
 To retrieve information for a single item, run `Track.ps1` followed by the full item URL
 in quotes.
 
@@ -92,7 +92,7 @@ To actively track a product, enter any optional parameters to generate a script.
 All results are automatically saved as **.csv** files in the **items** directory. 
 Multiple trackers querying the same item will write to the same file.
 
-##### Clarifications
+#### Clarifications
 - The list price of an item is its original price, meaning the item is discounted 
 if and only if the list price exists. The price is always the current price of the 
 item.   
@@ -100,7 +100,7 @@ item.
 - If the stock of an item exists, it means the stock is low. If it does not, it means
 there is sufficient stock or no stock is available.
 
-#### Warning
+### Warning
 Excessive querying within a short period of time from the same IP address may cause
 Amazon to flag you as a bot and generate a CAPTCHA, preventing the program from querying.
 If this happens, the program will automatically attempt to reconnect up to 10 times. If
